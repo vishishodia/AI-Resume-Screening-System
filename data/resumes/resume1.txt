@@ -1,0 +1,14 @@
+John Doe
+
+Skills:
+Python
+Machine Learning
+Deep Learning
+SQL
+TensorFlow
+
+Experience:
+2 years as AI Developer
+
+Education:
+B.Tech Computer Science
