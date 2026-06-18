@@ -1,3 +1,5 @@
+import re
+
 SKILLS = [
     "python",
     "machine learning",
@@ -10,8 +12,13 @@ SKILLS = [
     "mysql"
 ]
 
-def extract_skills(text):
+def preprocess_text(text):
     text = text.lower()
+    text = re.sub(r'[^\w\s]',' ', text)
+    return text
+
+def extract_skills(text):
+    text = preprocess_text(text)
 
     found_skills = []
 
@@ -19,4 +26,4 @@ def extract_skills(text):
         if skill in text:
             found_skills.append(skill)
 
-    return found_skills
+    return sorted(list(set(found_skills)))

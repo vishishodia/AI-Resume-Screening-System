@@ -1,8 +1,13 @@
+import os
 from src.skills import extract_skills
 
-with open("data/resumes/resume1.txt", "r") as f:
-    text = f.read()
+for file in os.listdir("data/resumes"):
+    path = f"data/resumes/{file}"
 
-skills = extract_skills(text)
+    with open(path) as f:
+        text = f.read()
 
-print(skills)
+    print(f"\n{file}")
+    print(extract_skills(text))
+
+

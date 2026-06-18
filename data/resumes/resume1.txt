@@ -6,6 +6,8 @@ Machine Learning
 Deep Learning
 SQL
 TensorFlow
+Docker
+NLP
 
 Experience:
 2 years as AI Developer
