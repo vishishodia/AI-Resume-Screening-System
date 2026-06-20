@@ -2,15 +2,25 @@ import re
 
 SKILLS = [
     "python",
+    "java",
+    "sql",
+    "mysql",
+    "docker",
+    "fastapi",
+    "pytorch",
+    "scikit-learn",
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "seaborn",
     "machine learning",
     "deep learning",
-    "tensorflow",
-    "sql",
     "nlp",
-    "java",
-    "docker",
-    "mysql"
+    "rag",
+    "prompt engineering",
+    "ollama"
 ]
+
 
 def preprocess_text(text):
     text = text.lower()
