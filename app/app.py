@@ -19,6 +19,20 @@ from src.scorer import calculate_skill_score, calculate_ats_score
 
 st.title("AI Resume Screening System")
 
+st.sidebar.title("About")
+
+st.sidebar.info(
+    """
+    AI Resume Screening System
+
+    Features:
+    - Resume Parsing
+    - Skill Extraction
+    - Semantic Matching
+    - ATS Scoring
+    """
+)
+
 uploaded_file = st.file_uploader(
     "Upload Resume PDF",
     type=["pdf"]
@@ -62,9 +76,20 @@ if st.button("Analyze Resume"):
             resume_text
         )
 
+        st.subheader("Resume Statistics")
+
+        st.metric(
+            "Skills Detected",
+            len(resume_skills)
+        )
+
         jd_skills = extract_skills(
             job_description
         )
+        if len(jd_skills) == 0:
+            st.warning(
+                "No known skills detected in the Job Description."
+            )
 
         st.subheader("Resume Skills")
         st.write(resume_skills)
@@ -89,17 +114,44 @@ if st.button("Analyze Resume"):
 
         st.subheader("Results")
 
-        st.write(
-            f"Skill Score: {skill_score:.2f}"
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            st.metric(
+                "ATS Score",
+                f"{ats_score * 100:.1f}%"
+            )
+
+        with col2:
+            st.metric(
+                "Skill Match",
+                f"{skill_score * 100:.1f}%"
+            )
+
+        with col3:
+            st.metric(
+                "Semantic Match",
+                f"{semantic_score * 100:.1f}%"
+            )
+        
+        st.subheader("Overall Match")
+
+        st.progress(
+            int(ats_score * 100)
         )
 
-        st.write(
-            f"Semantic Score: {semantic_score:.2f}"
-        )
+        if ats_score >= 0.85:
+            st.success("Excellent Match")
 
-        st.write(
-            f"ATS Score: {ats_score * 100:.1f}%"
-        )
+        elif ats_score >= 0.70:
+            st.info("Good Match")
+
+        elif ats_score >= 0.50:
+            st.warning("Average Match")
+
+        else:
+            st.error("Poor Match")
+
 
         matched_skills = list(
             set(jd_skills).intersection(
@@ -108,11 +160,19 @@ if st.button("Analyze Resume"):
         )
 
         st.subheader("Matched Skills")
-        st.write(matched_skills)
+        if matched_skills:
+            for skill in matched_skills:
+                st.success(f"✓ {skill}")
+        else:
+            st.info("No matching skills found.")
 
         missing_skills = list(
             set(jd_skills) - set(resume_skills)
         )
 
         st.subheader("Missing Skills")
-        st.write(missing_skills)
+        if missing_skills:
+            for skill in missing_skills:
+                st.warning(f"✗ {skill}")
+        else:
+            st.success("No missing skills.")

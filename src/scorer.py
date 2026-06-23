@@ -1,9 +1,15 @@
 def calculate_skill_score(jd_skills, resume_skills):
 
-    matched = set(jd_skills).intersection(set(resume_skills))
+    if len(jd_skills) == 0:
+        return 0.0
+
+    matched = set(jd_skills).intersection(
+        set(resume_skills)
+    )
+
     score = len(matched) / len(jd_skills)
 
-    return round(score,4)
+    return round(score, 4)
 
 def calculate_ats_score(skill_score, semantic_score):
 

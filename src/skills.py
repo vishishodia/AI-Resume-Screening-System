@@ -1,24 +1,69 @@
 import re
 
 SKILLS = [
+
+    # Programming
     "python",
     "java",
+    "c++",
+    "javascript",
     "sql",
+
+    # Databases
     "mysql",
-    "docker",
-    "fastapi",
-    "pytorch",
-    "scikit-learn",
-    "numpy",
-    "pandas",
-    "matplotlib",
-    "seaborn",
+    "postgresql",
+    "mongodb",
+
+    # AI/ML
     "machine learning",
     "deep learning",
     "nlp",
     "rag",
-    "prompt engineering",
-    "ollama"
+    "tensorflow",
+    "pytorch",
+    "scikit-learn",
+
+    # Data
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "seaborn",
+
+    # Backend
+    "fastapi",
+    "flask",
+    "django",
+
+    # DevOps
+    "docker",
+    "kubernetes",
+    "jenkins",
+    "terraform",
+
+    # Cloud
+    "aws",
+    "azure",
+    "gcp",
+
+    # Cybersecurity
+    "network security",
+    "ethical hacking",
+    "penetration testing",
+    "wireshark",
+    "burp suite",
+    "nmap",
+    "metasploit",
+    "kali linux",
+    "siem",
+    "incident response",
+    "vulnerability assessment",
+    "owasp",
+
+    # Data Engineering
+    "spark",
+    "kafka",
+    "airflow",
+    "hadoop"
 ]
 
 
