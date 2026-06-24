@@ -15,6 +15,7 @@ from src.parser import extract_text_from_pdf
 from src.skills import extract_skills
 from src.matcher import calculate_similarity
 from src.scorer import calculate_skill_score, calculate_ats_score
+from src.report_generator import generate_report
 
 
 st.title("AI Resume Screening System")
@@ -176,3 +177,20 @@ if st.button("Analyze Resume"):
                 st.warning(f"✗ {skill}")
         else:
             st.success("No missing skills.")
+
+        report_path = generate_report(
+            ats_score,
+            skill_score,
+            semantic_score,
+            matched_skills,
+            missing_skills
+        )
+
+        with open(report_path, "rb") as pdf_file:
+
+            st.download_button(
+                label="Download ATS Report",
+                data=pdf_file,
+                file_name="ATS_Report.pdf",
+                mime="application/pdf"
+            )
