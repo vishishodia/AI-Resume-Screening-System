@@ -1,39 +1,27 @@
-from src.ranking import rank_candidates
+from src.ranker import rank_candidates
 
-candidates = [
-
+results = [
     {
-        "name": "Resume A",
-        "ats_score": 0.778
+        "name": "Resume_A.pdf",
+        "ats_score": 0.81
     },
-
     {
-        "name": "Resume B",
-        "ats_score": 0.652
+        "name": "Resume_B.pdf",
+        "ats_score": 0.64
     },
-
     {
-        "name": "Resume C",
-        "ats_score": 0.914
+        "name": "Resume_C.pdf",
+        "ats_score": 0.92
     },
-
     {
-        "name": "Resume D",
-        "ats_score": 0.821
-    },
-    
-    {
-    "name": "Resume E",
-    "ats_score": 0.95
-}
-
+        "name": "Resume_D.pdf",
+        "ats_score": 0.74
+    }
 ]
 
-ranked = rank_candidates(candidates)
+ranked = rank_candidates(results)
 
-for i, candidate in enumerate(ranked, start=1):
+for index, candidate in enumerate(ranked, start=1):
     print(
-        f"{i},"
-        f"{candidate['name']}"
-        f"-{candidate['ats_score']*100:.2f}"
+        f"{index}. {candidate['name']} - {candidate['ats_score']:.2f}"
     )

@@ -1,9 +1,6 @@
-def rank_candidates(candidates):
-
-    ranked = sorted(
-        candidates,
-        key=lambda x : x['ats_score'],
+def rank_resumes(resume_scores):
+    return sorted(
+        resume_scores,
+        key=lambda x: x[1],
         reverse=True
     )
-
-    return ranked
