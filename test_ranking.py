@@ -1,4 +1,4 @@
-from src.ranker import rank_candidates
+from src.ranking import rank_candidates
 
 results = [
     {
