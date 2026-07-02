@@ -2,7 +2,7 @@
 
 ## Live Demo
 
-(https://ai-resume-screening-system-6qckgknbzggqfknree8wbx.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-resume-screening-system-6qckgknbzggqfknree8wbx.streamlit.app/)
 
 ## Features
 
